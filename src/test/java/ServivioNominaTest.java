@@ -1,4 +1,5 @@
 import org.example.Empleado;
+import org.example.ServicioNomina;
 import org.example.TipoEmpleado;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
