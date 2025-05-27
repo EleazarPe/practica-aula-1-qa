@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class Empleado {
     private Long id;
-
     private TipoEmpleado tipoEmpleado;
     private BigDecimal horasTrabajadas;
     private BigDecimal horasExtra;
