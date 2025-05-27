@@ -10,13 +10,15 @@ public class Empleado {
     private BigDecimal horasTrabajadas;
     private BigDecimal horasExtra;
     private BigDecimal tarifaxHora;
+    private boolean autorizacionSalario;
 
-    public Empleado(Long id, TipoEmpleado tipoEmpleado, BigDecimal horasTrabajadas, BigDecimal horasExtra, BigDecimal tarifaxHora) {
+    public Empleado(Long id, TipoEmpleado tipoEmpleado, BigDecimal horasTrabajadas, BigDecimal horasExtra, BigDecimal tarifaxHora, boolean autorizacionSalario) {
         this.id = id;
         this.tipoEmpleado = tipoEmpleado;
         this.horasTrabajadas = horasTrabajadas;
         this.horasExtra = horasExtra;
         this.tarifaxHora = tarifaxHora;
+        this.autorizacionSalario = autorizacionSalario;
     }
 
     public Long getId() {
@@ -57,5 +59,13 @@ public class Empleado {
 
     public void setTarifaxHora(BigDecimal tarifaxHora) {
         this.tarifaxHora = tarifaxHora;
+    }
+
+    public boolean isAutorizacionSalario() {
+        return autorizacionSalario;
+    }
+
+    public void setAutorizacionSalario(boolean autorizacionSalario) {
+        this.autorizacionSalario = autorizacionSalario;
     }
 }

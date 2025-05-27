@@ -3,6 +3,21 @@ package org.example;
 import java.math.BigDecimal;
 
 public class ServicioNomina {
+
+
+    public Empleado crearEmpleado(Empleado empleado) {
+
+        if (empleado.getHorasExtra().signum() == -1){
+            throw new IllegalArgumentException("Horas Extra negativa");
+        }
+
+        if (empleado.getHorasTrabajadas().signum() == -1){
+            throw new IllegalArgumentException("Horas Trabajadas negativa");
+        }
+
+        return empleado;
+    }
+
     public BigDecimal pagoBaseCalc(Empleado empleado) {
 
         return empleado.getTarifaxHora().multiply(empleado.getHorasTrabajadas());
