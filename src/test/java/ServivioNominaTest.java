@@ -7,16 +7,14 @@ import java.math.BigDecimal;
 
 public class ServivioNominaTest {
 
-    Empleado empleado;
-
-
     private  Empleado crearEmpleadoTest(Long id, TipoEmpleado tipoEmpleado, BigDecimal horasTrabajadas, BigDecimal horasExtra, BigDecimal tarifaxHora) {
-        empleado = new Empleado(id, TipoEmpleado.FULL_TIME, horasTrabajadas, horasExtra, tarifaxHora);
+        Empleado empleado = new Empleado(id, tipoEmpleado, horasTrabajadas, horasExtra, tarifaxHora);
         return empleado;
     }
 
     @Test
     public void calcularPagoHorasExtraTest(){
+        Empleado empleado = crearEmpleadoTest(1l, TipoEmpleado.FULL_TIME, new BigDecimal("40"), new BigDecimal("10"), new BigDecimal("20.00"));
 
     }
 }
