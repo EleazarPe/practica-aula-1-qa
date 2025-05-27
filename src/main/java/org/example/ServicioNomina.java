@@ -26,13 +26,26 @@ public class ServicioNomina {
 
     public static BigDecimal calcularPagoHorasExtra(Empleado empleado) {
         if(empleado == null){
-           throw new IllegalArgumentException("empleado es null");
+           return BigDecimal.ZERO;
         }
         if(empleado.getTipoEmpleado() !=  TipoEmpleado.FULL_TIME){
-            throw new IllegalArgumentException("El tipo de empleado es diferente a fullTime");
+            return BigDecimal.ZERO;
         }
 
-        return BigDecimal.ZERO;
+        return empleado.getHorasExtra().multiply(BigDecimal.valueOf(1.5).multiply(empleado.getTarifaxHora()));
     }
+    public static BigDecimal calcularAplicarBono(Empleado empleado) {
+        if(empleado == null){
+            return BigDecimal.ZERO;
+        }
+        if (empleado.getHorasTrabajadas().add(empleado.getHorasExtra()).compareTo(BigDecimal.valueOf(38)) > 0) {
+            return new BigDecimal("500");
+        }
+
+        return empleado.getHorasTrabajadas().multiply(empleado.getTarifaxHora());
+    }
+
+
+
 
 }

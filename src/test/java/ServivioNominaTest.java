@@ -4,6 +4,7 @@ import org.example.TipoEmpleado;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.params.ParameterizedTest;
 
 import java.math.BigDecimal;
 
@@ -41,9 +42,14 @@ public class ServivioNominaTest {
 
     @Test
     public void calcularPagoHorasExtraTest(){
-
+        Empleado empleado = crearEmpleadoParaTest();
+        assertEquals(new BigDecimal("300.00"), ServicioNomina.calcularPagoHorasExtra(empleado).setScale(2, BigDecimal.ROUND_HALF_UP));
+    }
+    @Test
+    public void aplicarBonoTest(){
         Empleado empleado = crearEmpleadoParaTest();
 
-        assertEquals(new BigDecimal("200.00"), empleado.getHorasExtra().multiply(empleado.getTarifaxHora()));
+        assertEquals(new BigDecimal("500.00"), ServicioNomina.calcularAplicarBono(empleado).setScale(2, BigDecimal.ROUND_HALF_UP));
+
     }
 }
