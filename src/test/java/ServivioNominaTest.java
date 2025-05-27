@@ -21,7 +21,7 @@ public class ServivioNominaTest {
 
         Empleado empleado = crearEmpleadoTest();
 
-        assertEquals(new BigDecimal("800"), servicioNomina.pagoBaseCalc(empleado));
+        assertEquals( empleado.getTarifaxHora().multiply(empleado.getHorasTrabajadas()), servicioNomina.pagoBaseCalc(empleado));
     }
 
     @Test
