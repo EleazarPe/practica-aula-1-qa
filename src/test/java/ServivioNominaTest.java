@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServivioNominaTest {
 
-    private  Empleado crearEmpleadoTest(Long id, TipoEmpleado tipoEmpleado, BigDecimal horasTrabajadas, BigDecimal horasExtra, BigDecimal tarifaxHora) {
-        Empleado empleado = new Empleado(id, tipoEmpleado, horasTrabajadas, horasExtra, tarifaxHora);
+    private  Empleado crearEmpleadoTest() {
+        Empleado empleado = new Empleado(1l, TipoEmpleado.FULL_TIME, new BigDecimal("40"), new BigDecimal("10"), new BigDecimal("20.00"));
         return empleado;
     }
 
@@ -18,14 +18,14 @@ public class ServivioNominaTest {
     public void pagoBaseTest(){
         ServicioNomina servicioNomina = new ServicioNomina();
 
-        Empleado empleado = new Empleado();
+        Empleado empleado = crearEmpleadoTest();
 
-        assertEquals(new BigDecimal(40 * 10), servicioNomina.pagoBaseCalc(empleado));
+        assertEquals(new BigDecimal("800"), servicioNomina.pagoBaseCalc(empleado));
     }
 
     @Test
     public void calcularPagoHorasExtraTest(){
-        Empleado empleado = crearEmpleadoTest(1l, TipoEmpleado.FULL_TIME, new BigDecimal("40"), new BigDecimal("10"), new BigDecimal("20.00"));
+        Empleado empleado = crearEmpleadoTest();
         assertEquals(new BigDecimal("200.00"), empleado.getHorasExtra().multiply(empleado.getTarifaxHora()));
     }
 }
