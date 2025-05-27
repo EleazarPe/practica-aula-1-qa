@@ -3,6 +3,7 @@ package org.example;
 
 import java.math.BigDecimal;
 
+
 public class Empleado {
     private Long id;
     private TipoEmpleado tipoEmpleado;
