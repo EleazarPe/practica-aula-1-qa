@@ -7,6 +7,10 @@ public class ServicioNomina {
 
     public Empleado crearEmpleado(Empleado empleado) {
 
+        if (empleado == null){
+            throw new NullPointerException("Empleado no puede ser nulo");
+        }
+
         if (empleado.getHorasExtra().signum() == -1){
             throw new IllegalArgumentException("Horas Extra negativa");
         }

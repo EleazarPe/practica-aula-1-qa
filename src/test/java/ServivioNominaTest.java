@@ -22,10 +22,16 @@ public class ServivioNominaTest {
 
         ServicioNomina servicioNomina = new ServicioNomina();
 
+        // Empleado no puede ser nulo.
+        Empleado test0 = null;
+        assertThrows(NullPointerException.class, () -> servicioNomina.crearEmpleado(test0));
+
+        // Horas Trabajadas no puede ser negativo
         Empleado test1 = crearEmpleadoParaTest();
         test1.setHorasTrabajadas(new BigDecimal("-10"));
         assertThrows(IllegalArgumentException.class, () -> servicioNomina.crearEmpleado(test1));
 
+        // Horas extras no puede ser negativo
         Empleado test2 = crearEmpleadoParaTest();
         test2.setHorasExtra(new BigDecimal("-10"));
         assertThrows(IllegalArgumentException.class, () -> servicioNomina.crearEmpleado(test2));
